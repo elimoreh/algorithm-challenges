@@ -11,15 +11,24 @@
 */
 
 var evenOccurrence = function(arr) {
+
   var hash = {}, result;
-  for(var i = arr.length - 1; i >= 0; i--){
-    var value = hash[arr[i]];
-    if (value) {
-      value++;
-      if(value % 2 === 0){ result = arr[i]; }
+  arr.forEach(element =>{
+    if (!hash.hasOwnProperty(element)){
+      hash[element] = 1;
     } else {
-      hash[arr[i]] = 1;
+      hash[element]++;
     }
-  }
-  return result;
+  });
+
+  for(var i = arr.length - 1; i >= 0; i--){
+      if(typeof arr[i] === "string") {
+        continue;
+      }
+      if(hash[arr[i]] % 2 === 0){
+        result = arr[i];
+      }
+    }
+
+  return result || null;
 };
