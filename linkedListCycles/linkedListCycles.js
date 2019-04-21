@@ -31,24 +31,19 @@
  * Constraint 3: Do not mutate the original nodes in any way
  */
 
+//node constructor that gives the node both a value and a next
 var Node = function(value) {
   return { value: value, next: null };
 };
 
-var hasCycle = function(linkedList) {
-
-  var hash = {};
-
-  var listIterator = function(node = linkedList){
-    if(node.next === null){ return false; }
-    if(hash.hasOwnProperty(node.value)){
-      return true;
-    } else {
-      hash[node.value] = true;
-    }
-
-    return listIterator(node.next);
+//the hair moves at twice the speed of the turtle
+  //if the hair and turtle reach the same point the linked list has a cylce.
+var hasCycle = function(turtle, hair = turtle.next) {
+    hair = hair.next;
+    //checks if the list has an end insight
+    if(!hair || !hair.next) { return false; }
+    //checks to see if any point the hair and the turtle are at equal places
+    if(turtle.value === hair.value) { return true; }
+    //returns the function and keeps going until one of the base cases is met
+    return hasCycle(turtle.next, hair.next);
   };
-
-  return listIterator();
-};
