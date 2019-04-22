@@ -17,32 +17,40 @@
 /**
   * Stack Class
   */
-  var Stack = function() {
-    this.arr = [];
-    this.minArr = [];
-  };
+  class Stack {
+
+    constructor(){
+      this.arr = [];
+      this.minArr = [];
+    }
+
+      push(value) {
+        this.arr.push(value);
+        if  (this.minArr.length === 0) { this.minArr.push(value); }
+        if (this.min() > value) { this.minArr.push(value); }
+      }
+
+      pop() {
+        var value  = this.arr.pop();
+        if(value === this.min()) { this.minArr.pop(); }
+      }
+
+      size() {
+        return this.arr.length;
+      }
+
+      min() {
+        return this.minArr[this.minArr.length - 1];
+      }
+
+  }
+
 
 
   // add an item to the top of the stack
-    Stack.prototype.push = function(value) {
-      this.arr.push(value);
-      if  (this.minArr.length === 0) { this.minArr.push(value); }
-      if (this.min() > value) { this.minArr.push(value); }
 
-    };
 
   // remove an item from the top of the stack
-    Stack.prototype.pop = function() {
-      var value  = this.arr.pop();
-      if(value === this.min()) { this.minArr.pop(); }
-    };
+
 
   // return the number of items in the stack
-    Stack.prototype.size = function() {
-      return this.arr.length;
-    };
-
-  // return the minimum value in the stack
-    Stack.prototype.min = function() {
-      return this.minArr[this.minArr.length - 1];
-    };
