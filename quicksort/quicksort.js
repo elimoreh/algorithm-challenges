@@ -11,5 +11,22 @@
  */
 
 
-var quicksort = function(array) {
+let quicksort = (array) => {
+  if(array.length <= 1){return array;}
+
+  let pivotIndex = Math.floor(array.length/2);
+  let pivot = array.splice(pivotIndex,1);
+
+  let lessthanArray = [];
+  let greaterthanArray = [];
+
+  array.forEach(el => {
+    if(el > pivot){greaterthanArray.push(el);}
+    else{lessthanArray.push(el)}
+  });
+
+  return [...quicksort(lessthanArray),...pivot,...quicksort(greaterthanArray)];
 };
+
+
+console.log(quicksort([6,3,4,2,1,8,-1,1]))
