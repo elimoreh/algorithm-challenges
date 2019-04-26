@@ -95,8 +95,30 @@
  *
  */
 
+let mergeSort = (array) => {
+  if (array.length < 2) {
+    return array;
+  }
 
+  let center = Math.floor(array.length / 2);
+  let left = array.slice(0, center);
+  let right = array.slice(center);
 
-var mergeSort = function(array) {
-  // Your code here.
-};
+  return merge(mergeSort(left), mergeSort(right));
+}
+
+let merge = (left, right) => {
+  let results = []
+
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      results.push(left.shift())
+    } else {
+      results.push(right.shift())
+    }
+  }
+
+  return [...results, ...left, ...right];
+}
+
+console.log(mergeSort([9, 8, 1, 4, 7, 18, 2]));
