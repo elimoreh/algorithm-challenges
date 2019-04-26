@@ -27,7 +27,7 @@
       push(value) {
         this.arr.push(value);
         if  (this.minArr.length === 0) { this.minArr.push(value); }
-        if (this.min() > value) { this.minArr.push(value); }
+        if (this.min() >= value) { this.minArr.push(value); }
       }
 
       pop() {
