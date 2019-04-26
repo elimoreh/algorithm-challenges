@@ -17,8 +17,7 @@ let quicksort = (array) => {
   let pivotIndex = Math.floor(array.length/2);
   let pivot = array.splice(pivotIndex,1);
 
-  let lessthanArray = [];
-  let greaterthanArray = [];
+  let lessthanArray = [], greaterthanArray = [];
 
   array.forEach(el => {
     if(el > pivot){greaterthanArray.push(el);}
@@ -29,4 +28,16 @@ let quicksort = (array) => {
 };
 
 
-console.log(quicksort([6,3,4,2,1,8,-1,1]))
+//test
+var million = () => {
+  let results = [];
+  for(var i = 0; i < 100000; i++){
+    results.push(Math.random() * 1000)
+  }
+return results;
+}
+
+let largeArray = million();
+
+quicksort(largeArray)
+
