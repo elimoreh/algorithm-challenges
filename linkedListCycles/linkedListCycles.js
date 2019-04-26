@@ -2,11 +2,7 @@
  * Assignment: Write a function that returns true if a linked list contains a cycle, or false if it terminates somewhere
  *
  * Explanation:
-<<<<<<< HEAD
  *
-=======
- * 
->>>>>>> 8f4a23aa6ce68c78a172eb59ade064c38c6f17e5
  * Generally, we assume that a linked list will terminate in a null next pointer, as follows:
  *
  * A -> B -> C -> D -> E -> null
@@ -35,15 +31,11 @@
  * Constraint 3: Do not mutate the original nodes in any way
  */
 
-<<<<<<< HEAD
 //node constructor that gives the node both a value and a next
-=======
->>>>>>> 8f4a23aa6ce68c78a172eb59ade064c38c6f17e5
 var Node = function(value) {
   return { value: value, next: null };
 };
 
-<<<<<<< HEAD
 //the hair moves at twice the speed of the turtle
   //if the hair and turtle reach the same point the linked list has a cylce.
 var hasCycle = function(turtle, hair = turtle.next) {
@@ -55,8 +47,3 @@ var hasCycle = function(turtle, hair = turtle.next) {
     //returns the function and keeps going until one of the base cases is met
     return hasCycle(turtle.next, hair.next);
   };
-=======
-var hasCycle = function(linkedList) {
-  // TODO: implement me!
-};
->>>>>>> 8f4a23aa6ce68c78a172eb59ade064c38c6f17e5
