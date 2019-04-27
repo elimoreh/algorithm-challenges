@@ -31,8 +31,9 @@
  *   See https://www.dartmouth.edu/~chance/teaching_aids/books_articles/Mann.pdf .
  */
 
-var shuffleDeck = function(deck) {
-  // Your code here
+var shuffleDeck = (deck) => {
+  deck.forEach((el, index, array) =>  swap(index, Math.floor(Math.random() * 52), array))
+  return deck;
 };
 
 // Ordered deck generator provided for your testing convenience
@@ -50,3 +51,12 @@ var orderedDeck = function() {
 
   return deck;
 };
+
+
+let swap = (a, b, array) => {
+  [array[a], array[b]] = [array[b], array[a]]
+}
+
+
+var deck = orderedDeck();
+console.log(shuffleDeck(deck));
