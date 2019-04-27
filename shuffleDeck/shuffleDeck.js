@@ -32,7 +32,7 @@
  */
 
 var shuffleDeck = (deck) => {
-  deck.forEach((el, index, array) =>  swap(index, Math.floor(Math.random() * 52), array))
+  deck.forEach((el, index, array) =>  swap(index, Math.floor(Math.random() * deck.length), array))
   return deck;
 };
 
