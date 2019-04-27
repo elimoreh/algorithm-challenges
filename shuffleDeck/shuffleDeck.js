@@ -32,19 +32,21 @@
  */
 
 var shuffleDeck = (deck) => {
-  deck.forEach((el, index, array) =>  swap(index, Math.floor(Math.random() * deck.length), array))
-  return deck;
+  for(var i = 0; i < 100; i++){
+    deck.forEach((el, index, array) => swap(index, Math.floor(Math.random() * deck.length), array))
+    return deck;
+  }
 };
 
 // Ordered deck generator provided for your testing convenience
 // (You may alter this function, but an unaltered copy will be used for tests.)
-var orderedDeck = function() {
-  var suits = [ '♥', '♣', '♠', '♦' ];
-  var values = [ 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K' ];
+var orderedDeck = function () {
+  var suits = ['♥', '♣', '♠', '♦'];
+  var values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
   var deck = [];
 
-  suits.forEach(function(suit) {
-    values.forEach(function(value) {
+  suits.forEach(function (suit) {
+    values.forEach(function (value) {
       deck.push(value + suit);
     });
   });
