@@ -32,10 +32,8 @@
  */
 
 var shuffleDeck = (deck) => {
-  for(var i = 0; i < 100; i++){
-    deck.forEach((el, index, array) => swap(index, Math.floor(Math.random() * deck.length), array))
+    deck.forEach((el, index, array) => swap(index, Math.floor(Math.random() * deck.length - 1), array))
     return deck;
-  }
 };
 
 // Ordered deck generator provided for your testing convenience
