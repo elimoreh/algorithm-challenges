@@ -6,6 +6,22 @@
  *   firstNonRepeatedCharacter('AACBDB'); // => 'C'
  */
 
-var firstNonRepeatedCharacter = function(string) {
-  // TODO: your solution here
+var firstNonRepeatedCharacter = function (string) {
+  var hash = {};
+
+  for (var i = 0; i < string.length; i++) {
+    if (hash.hasOwnProperty(string[i])) {
+      hash[string[i]]++;
+    } else {
+      hash[string[i]] = 1;
+    }
+  }
+
+  for (var i = 0; i < string.length; i++) {
+    if (hash[string[i]] === 1) {
+      return string[i];
+    }
+  }
 };
+
+
