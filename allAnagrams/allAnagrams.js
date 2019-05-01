@@ -12,30 +12,28 @@
   * console.log(anagrams); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-var allAnagrams = function(string) {
-  string = string.toLowerCase()
-  let results = []
+var allAnagrams = function (string) {
+  string = string.toLowerCase();
+  let results = [];
 
   let combinations = (combo = '') => {
-    if(combo.length === string.length){
-      for(var i = 0; i < string.length; i++){
-        if(!combo.includes(string[i])){
+    if (combo.length === string.length) {
+      for (var i = 0; i < string.length; i++) {
+        if (!combo.includes(string[i])) {
           return;
         }
-      }
+      };
       results.push(combo);
       return;
     }
-    
-    for(var i = 0; i < string.length; i++){
-      combinations(combo + string[i])
-    }
-  }
 
-combinations()
-    
-return Array.from(new Set(results));
+    for (var i = 0; i < string.length; i++) {
+      combinations(combo + string[i]);
+    ;}
+  };
+
+  combinations();
+
+  return Array.from(new Set(results));
 
 };
-
-
