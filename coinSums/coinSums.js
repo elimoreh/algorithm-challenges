@@ -24,8 +24,63 @@ makeChange(1) === 1
 makeChange(2) === 2
 */
 
-var makeChange = function(total) {
+//loop through the first value see if its divisible
+//go through to the next value 
+
+
+var makeChange = (total) => {
+    let result = 0;
+    let denom = [200, 100, 50, 20, 10, 5, 2, 1]
+    let denomRotation = (i = 0, moneyLeft = total) => {
+        debugger;
+        if (moneyLeft === 0) {
+            result++
+            return;
+        }
+
+        for (; i < denom.length; i++) {
+            moneyLeft = moneyLeft - denom[i]
+            if (moneyLeft >= 0) {
+                denomRotation(i, moneyLeft);
+
+            }
+            moneyLeft = moneyLeft + denom[i];
+        }
+    }
+
+    denomRotation();
+    return result;
+};
+
+class TestSuite {
+    runtest() {
+        this.smallNumber();
+        this.largeNumber();
+        this.zero();
+    };
+
+    smallNumber() {
+        let actual = makeChange(9);
+        let expected = 8;
+        (actual === expected) ? console.log('test passed--the function outputs the proper value when given a small number relative to range'): console.log(`test failed-- expected ${expected} instead ${actual}`)
+    };
+
+    largeNumber() {
+        let actual = makeChange(198);
+        let expected = 70407;
+        (actual === expected) ? console.log('test passed--the function outputs the proper value when given a large number relative to range'): console.log(`test failed-- expected ${expected} instead ${actual}`)
+    };
+
+    zero() {
+        let actual = makeChange(0);
+        let expected = 1;
+        (actual === expected) ? console.log('test passed--the function outputs 1 when given 0'): console.log(`test failed-- expected ${expected} instead ${actual}`)
+
+    };
 
 };
+
+var test = new TestSuite();
+test.runtest();
 
 
