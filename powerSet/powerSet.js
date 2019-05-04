@@ -43,5 +43,3 @@ var powerSet = function (str) {
     iterateStr();
     return Object.values(hash);
 };
-
-console.log(powerSet('jump'));
