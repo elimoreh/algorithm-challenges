@@ -27,7 +27,7 @@ var powerSet = function (str) {
     let hash = {};
     let sorted = [...str].sort()
 
-    iterateStr = (str = '', i = 0) => {
+    let iterateStr = (str = '', i = 0) => {
         hash[str] = str;
         if (str.length === sorted.length) { return; }
 
