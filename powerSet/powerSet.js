@@ -17,5 +17,31 @@
  * -> ["", "j", "ju", "jm", "jp", "jmu", "jmp", "jpu", "jmpu", "u", "m", "p", "mu", "mp", "pu", "mpu"]
  */
 
-var powerSet = function(str) {
+
+//sort the given word
+//go through the permuations check if it already exist
+//return a new set to ensure uniqueness
+//return result
+
+var powerSet = function (str) {
+    let hash = {};
+    let sorted = [...str].sort()
+
+    iterateStr = (str = '', i = 0) => {
+        hash[str] = str;
+        if (str.length === sorted.length) { return; }
+
+        for (; i < sorted.length; i++) {
+            if (str[str.length - 1] !== sorted[i]) {
+                let newStr = str + sorted[i];
+                iterateStr(newStr, i);
+                newStr.slice(0, newStr.length - 1);
+            }
+        }
+    }
+
+    iterateStr();
+    return Object.values(hash);
 };
+
+console.log(powerSet('jump'));
