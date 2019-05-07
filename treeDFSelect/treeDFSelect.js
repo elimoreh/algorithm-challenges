@@ -36,8 +36,44 @@ var Tree = function(value) {
 };
 
 Tree.prototype.DFSelect = function(filter) {
+  let results = [];
+  let branchArray = [];
+
+  let iterateTree = function(tree, counter = -1){
+    counter++;
+
+    if(!branchArray[counter]){
+      branchArray[counter] = [tree.value]
+    } else {
+      branchArray[counter].push(tree.value);
+    }
+    
+    if(tree.children){
+      for(var i = 0; i < tree.children.length; i++){
+        iterateTree(tree.children[i], counter);
+      }
+    }
+  }
+
+  iterateTree(this);
+  branchArray.forEach((el, index) => {
+    for(var i = 0; i < el.length; i++){
+      if(filter(el[i],index)){
+        results.push(el[i]);
+      }
+    }
+  });
+
+  return results;
+
 };
 
+
+     // [1, 5, 3, 7] 
+  // root1.DFSelect(function (value, depth) {
+  //   return depth === 1;
+  // }
+    // [2, 3]
 
 
 /**
