@@ -40,7 +40,7 @@ Tree.prototype.DFSelect = function (filter) {
   let iterateTree = function (tree, counter = -1) {
     counter++;
     if(filter(tree.value, counter)){ results.push(tree.value); };
-    if (tree.children) { tree.children.forEach((child) => iterateTree(child), counter)}
+    if (tree.children) { tree.children.forEach((child) => iterateTree(child,counter))}
   }
   iterateTree(this);
   return results;
