@@ -38,7 +38,5 @@
  */
 
 
-var asyncMap = (tasks, callback) => {
-    var promises = tasks.map((task) => new Promise(task));
-    return Promise.all(promises).then((val) => callback(val));
-}
+var asyncMap = (tasks, callback) => Promise.all(tasks.map((task) => new Promise(task))).then((val) => callback(val));
+
