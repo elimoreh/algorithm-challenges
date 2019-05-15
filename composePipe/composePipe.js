@@ -22,9 +22,9 @@
  * 
  * Each function is called on the return value of the preceding function.
  *
- * You can view pipe as moving left to right through its arguments.
+ * You can view pipe as moving left to right through its arguments..
  * 
- * Pipe Example: 1
+ * Pipe Example:
  *  var add2 = function(number){ return number + 2; }
  *  var multiplyBy3 = function(number){ return number * 3; }
  *  pipe(add2, multiplyBy3)(5) // 21
