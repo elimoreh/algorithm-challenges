@@ -39,12 +39,12 @@ function linkedListIntersection(list1, list2) {
   const hash = {}
   while(list1.next || list2.next){
     if(list1 && hash.hasOwnProperty(list1.value)) {
-      return list1.value
+      return list1
     } else {
       hash[list1.value] = list1.value;
     }
     if(list2 && hash.hasOwnProperty(list2.value)) {
-      return list2.value
+      return list2
     } else {
       hash[list2.value] = list2.value;
     }
