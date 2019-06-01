@@ -50,7 +50,9 @@ Range.prototype.size = function () {
 };
 
 Range.prototype.each = function (callback) {
-    for(let i = this.start; i <= this.end; i += this.step){
+    const start = (this.start < this.end)? this.start : this.end;
+    const end = (this.start > this.end)? this.start : this.end;
+    for(let i = start; i <= end; i += Math.abs(this.step)) {
         callback(i);
     }
 }
@@ -67,14 +69,16 @@ Range.prototype.includes = function (val) {
 
 var myRange = new Range(0,10); // a new range representing the numbers between 0 and 10 (inclusively)
  
-var evenNumbers = new Range(2,8,2); // A range with the even numbers 2, 4, 6, and 8.
-  evenNumbers.each(function(val){
+var evenNumbers = new Range(-10,2); // A range with the even numbers 2, 4, 6, and 8.
+
+evenNumbers.each(function(val){
     console.log(val+"!");
 });
  
  
   console.log(evenNumbers.size())
   console.log(evenNumbers.includes(2));
+
 //   evenNumbers.includes(2) should be true, evenNumbers.includes(3) should be false
 
  
