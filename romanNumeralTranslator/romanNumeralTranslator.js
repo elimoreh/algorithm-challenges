@@ -28,7 +28,7 @@ var dv = {
 };
 
 var translateRomanNumeral = function(romanNumeral) {
-  if(!romanNumeral) return null;
+  if(typeof romanNumeral !== 'string') return null;
   let total = 0;
   let subtract = 0;
   for(let i = 0; i  < romanNumeral.length; i++){
