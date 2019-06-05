@@ -24,7 +24,7 @@ function sudokuChecker(board) {
   const bm = board.split('\n');
   // row check
   for(let i = 0; i < 9; i++){
-    if(bm[i].split('').reduce((a,b) => a + Number(b), 0) !== 45) return false;
+    if(bm[i].split('').reduce((a,b) => a + Number(b), 0) !== 45) return 'invalid';
   }
   
   // vertical check
@@ -33,22 +33,25 @@ function sudokuChecker(board) {
     for(let j = 0; j < 9; j++){
       total += Number(bm[j][i])
     }
-    if(total !== 45) return false;
+    if(total !== 45) return 'invalid';
   }
   // block check
   for(let i = 0; i < 9; i++){
     for(let j = 0; j < 9; j++){
-      if(i + j % 3 === 0){
+      if((i + j) % 3 === 0){
         let total  = 0
         for(var r = 0; r < 3; r++){
           for(var c = 0; c < 3; c++ ){
             total += Number(bm[i + r][j+ c]);
           }
         }
-        if(total !== 45) return false;
+        if(total !== 45) return 'invalid';
       }
     }
   }
 
-  return true;
+  return 'valid';
 }
+
+var input = "215873649\n734965812\n698412537\n387241965\n146597283\n471659328\n952386471\n563128794\n829734156"
+console.log(sudokuChecker(input));
