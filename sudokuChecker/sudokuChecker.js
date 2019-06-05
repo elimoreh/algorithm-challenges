@@ -50,7 +50,7 @@ function sudokuChecker(board) {
     }
   }
 
-  return 'valid';
+  return 'solved';
 }
 
 var input = "215873649\n734965812\n698412537\n387241965\n146597283\n471659328\n952386471\n563128794\n829734156"
