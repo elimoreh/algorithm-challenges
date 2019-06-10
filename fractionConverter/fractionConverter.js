@@ -13,14 +13,13 @@
  */
 
 var toFraction = function(number) {  
-  let ratio = 1/(number);
+  let ratio = 1/number
   let whole;
   let i = 1;
   while(!whole){
     let dn = i * ratio;
-    if(Math.floor(dn) === dn){ return `${i}/${dn}`}
+    let negative =  (ratio < 0) ? '-' : ''
+    if(Math.floor(dn) === dn){ return `${negative}${i}/${Math.abs(dn)}`}
     i++;
   };
 };
-
-
