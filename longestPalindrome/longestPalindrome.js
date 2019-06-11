@@ -9,12 +9,12 @@
 var longestPalindrome = function (string) {
     let results;
     let max = 0;
-    if(!string) return ''
+    if(!string) return '';
     let sections = (i) => {
-        let section = ''
-        for(let j = 0; j <= string.length - (string.length - i); j++){
+        let section = '';
+        for(let j = 0; j <= string.length - (string.length - i); j++) {
             section = section + string[i - j];
-            if (string.includes(section)){
+            if (string.includes(section)) {
                 if(section.length > max) {
                     max = section.length;
                     results = section;
@@ -24,7 +24,7 @@ var longestPalindrome = function (string) {
             }
         }
     }
-    for(let i = string.length - 1; i >= 0; i-- ){
+    for(let i = string.length - 1; i >= 0; i--) {
         sections(i);
     }
     return results;
