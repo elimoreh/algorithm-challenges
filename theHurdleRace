@@ -1,0 +1,7 @@
+function hurdleRace(k, height) {
+    var max = Math.max(...height);
+    if (max > k) { return max - k }
+    if (k >= max) { return 0 }
+}
+
+link : https://www.hackerrank.com/challenges/the-hurdle-race/problem
